@@ -177,6 +177,8 @@ namespace UI
             for (int i = 0; i < fields.Length; i++)
             {
                 var field = fields[i];
+                if(field.CustomAttributes==null)
+                    break;
                 if (field.CustomAttributes.Count(x => x.AttributeType == typeof(ShowInspector)) > 0)
                 {
                     if (field.FieldType.IsArray)

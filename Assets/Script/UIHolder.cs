@@ -121,10 +121,7 @@ namespace UI
 
     #region Holder Obj
 
-    public interface ISerializableObj
-    {
-    }
-
+  
     public interface IHolderObj
     {
         void DrawObj(FieldObject fieldInfo);
@@ -545,6 +542,9 @@ namespace UI
     }
 
     public sealed class ShowInspector : Attribute
+    {
+    }
+    public sealed class ShowCustomType : Attribute
     {
     }
 

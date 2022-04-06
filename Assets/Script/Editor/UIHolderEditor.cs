@@ -179,23 +179,23 @@ namespace UI
                 var field = fields[i];
                 if (field.CustomAttributes.Count(x => x.AttributeType == typeof(ShowInspector)) > 0)
                 {
-                    if (typeof(ISerializableObj).IsAssignableFrom(field.FieldType))
-                    {
-                        if (field.FieldType.IsArray)
-                        {
-                        }
-                        else
-                        {
-                            result.Add(GenerateCustomType(field));
-                        }
-                    }
-                    else if (field.FieldType.IsArray)
+                    if (field.FieldType.IsArray)
                     {
                         result.Add(GenerateArrayType(field));
                     }
                     else
                     {
                         result.Add(GenerateFieldObject(field));
+                    }
+                }
+                else if (field.CustomAttributes.Count(x => x.AttributeType == typeof(ShowCustomType)) > 0)
+                {
+                    if (field.FieldType.IsArray)
+                    {
+                    }
+                    else
+                    {
+                        result.Add(GenerateCustomType(field));
                     }
                 }
             }

@@ -7,7 +7,7 @@ namespace UI
 {
     public class UIHolder : MonoBehaviour
     {
-        public string ClassName;
+        private string ClassName;
         public List<HolderObj> Objs;
         public List<HolderStringObj> StringObjs;
         public List<HolderColorObj> ColorObjs;

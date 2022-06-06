@@ -7,7 +7,7 @@ namespace UI
 {
     public class UIHolder : MonoBehaviour
     {
-        public string ClassName;
+        [HideInInspector]public string ClassName;
         public List<HolderObj> Objs;
         public List<HolderStringObj> StringObjs;
         public List<HolderColorObj> ColorObjs;
@@ -136,8 +136,8 @@ namespace UI
         public List<HolderIntObj> IntEntity;
         public List<HolderFloatObj> FloatEntity;
         public List<HolderColorObj> ColorEntity;
-        public int Size;
-        public bool Expand;
+        private int Size;
+        private bool Expand;
         public T[] GetEntity<T>()where T : Object
         {
             T[] result= null;
@@ -193,6 +193,7 @@ namespace UI
         public void DrawObjWithSpace(Type type, string space, string mainNameSpace = "")
         {
 #if UNITY_EDITOR
+           
             Expand = UnityEditor.EditorGUILayout.Foldout(Expand, $"{mainNameSpace}{VariableName}");
             if (!Expand)
                 return;
@@ -517,7 +518,7 @@ namespace UI
 #endif
         }
     }
-
+    
     [Serializable]
     public class HolderFloatObj : IHolderObj
     {
